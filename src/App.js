@@ -1,18 +1,17 @@
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import { Layout } from "./components";
+// import { Layout } from "./components";
 import GlobalStyle from "./global.styles";
-import { HomePage } from "./pages";
+import { HomePage, AuthenticationPage } from "./pages";
 
 const App = () => {
   return (
     <AppContainer>
       <GlobalStyle />
-      <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/auth" component={AuthenticationPage} />
         </Switch>
-      </Layout>
     </AppContainer>
   );
 };
