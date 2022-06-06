@@ -1,4 +1,4 @@
-import HomePage from "./home-page/home-page.component";
+import Dashboard from "./dashboard/dashboard.component";
 import AuthenticationPage from "./authentication-page/authentication-page.component";
 
-export { HomePage, AuthenticationPage };
+export { Dashboard, AuthenticationPage };

@@ -1,17 +1,15 @@
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-// import { Layout } from "./components";
 import GlobalStyle from "./global.styles";
-import { HomePage, AuthenticationPage } from "./pages";
+import { Dashboard } from "./pages";
 
 const App = () => {
   return (
     <AppContainer>
       <GlobalStyle />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/auth" component={AuthenticationPage} />
-        </Switch>
+      <Switch>
+        <Route exact path="/dashboard" component={Dashboard} />
+      </Switch>
     </AppContainer>
   );
 };
@@ -26,4 +24,6 @@ const AppContainer = styled.section`
 
   display: grid;
   place-items: center;
+
+  background-color: var(gray-shade-primary);
 `;

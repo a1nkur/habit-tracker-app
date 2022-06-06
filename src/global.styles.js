@@ -8,23 +8,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html, body {
-        font-family: 'Sora', sans-serif;
-        height: 100%;
-        /* min-height: 100% !important; */
-    /* height: 100%; */
-        
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        /* &::-webkit-scrollbar {
-            display: none;
-        } */
-        /* Hide scrollbar for IE, Edge and Firefox */
-        /* -ms-overflow-style: none;  IE and Edge */
-        /* scrollbar-width: none;  Firefox */
-        /* scroll-behavior: smooth; */
+        font-family: 'Noto Sans', sans-serif;
+
    }
 
    :root {
-       --black-shade-primary:  #1a1a1a;
+       /* --black-shade-primary:  #1a1a1a;
        --black-shade-secondary:  #292929;
        --white-shade-primary:  #ffffff;
        --white-shade-secondary:  #F4F5F6;
@@ -35,9 +24,20 @@ const GlobalStyle = createGlobalStyle`
        --red-shade-primary:  #f16363;
        --green-shade-primary:  #31c879;
        --green-shade-secondary:  #307e54;
-       --opal:  #C2D6CF;
-       --border-1 : 1px solid #ccc;       
-   }
+       --opal:  #C2D6CF; */
+       --border-1 : 1px solid #ccc;
+       
+       
+       --black-shade-primary: #000000;
+       --black-shade-secondary: #35383F;
+
+
+       --gray-shade-primary:  #A3A8B0;
+       --gray-shade-secondary:  #EDF3FA;
+
+
+       --blue-shade-primary:  #0E7CF2;
+    }
    
     a {
         color: #000;
