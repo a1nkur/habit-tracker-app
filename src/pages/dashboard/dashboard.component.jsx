@@ -1,5 +1,15 @@
 import styled from "styled-components";
-import { DisplayPanel, LeftPanel, Layout, Welcome, ToggleButtonGroup, AddNewHabit } from "../../components";
+import {
+  Welcome,
+  ToggleButtonGroup,
+  AddNewHabit,
+  ToggleTimeline,
+  ToggleView,
+  ProgressBar,
+  DataView,
+  ToggleDateView,
+  HabitStatus,
+} from "../../components";
 
 const Dashboard = () => {
   return (
@@ -13,12 +23,18 @@ const Dashboard = () => {
             <ToggleButtonGroup />
             <AddNewHabit />
           </RowTwo>
-          <RowThree></RowThree>
-          {/* <RowFour></RowFour> */}
+          <RowThree>
+            <ToggleTimeline />
+            <ToggleView />
+            <ProgressBar />
+          </RowThree>
+          <RowFour>
+            <DataView />
+          </RowFour>
         </ColOne>
         <ColTwo>
-          <div className="x"></div>
-          <div className="x"></div>
+          <ToggleDateView />
+          <HabitStatus />
         </ColTwo>
       </InnerContainer>
     </Container>
@@ -55,29 +71,30 @@ const InnerContainer = styled.section`
 const ColOne = styled.section`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 8rem auto;
+  grid-template-rows: 5rem 4rem 6rem auto;
 `;
 
 const RowOne = styled.section``;
 
 const RowTwo = styled.section`
-  display: flex;
-  /* border: 1px solid blue; */
-
+  display: grid;
+  grid-template-columns: 5fr 1fr;
   padding-top: 0.2rem;
 `;
+
 const RowThree = styled.section`
-  height: 100%;
-  border: 1px solid pink;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 3rem 3rem;
+  grid-row-gap: 0.5rem;
+
+  /* border: 1px dotted red; */
 `;
-// const RowFour = styled.section``;
+
+const RowFour = styled.section``;
 
 const ColTwo = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 8rem auto;
-
-  /* .x {
-    border: 1px solid red;
-  } */
 `;

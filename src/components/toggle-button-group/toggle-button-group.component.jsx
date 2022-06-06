@@ -16,9 +16,9 @@ export default ToggleButtonGroup;
 /* ---------------------------- Styled Components --------------------------- */
 
 const Container = styled.section`
-  flex: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 3rem;
-  display: flex;
   border-radius: 30px;
 
   padding: 0.3rem;
@@ -30,7 +30,6 @@ const Button = styled.button`
   text-transform: capitalize;
   height: 100%;
 
-  flex: 1;
   border-radius: 30px;
   color: var(--black-shade-secondary);
   border: none;

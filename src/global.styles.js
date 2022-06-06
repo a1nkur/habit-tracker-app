@@ -37,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
 
 
        --blue-shade-primary:  #0E7CF2;
+
+       --green-shade-primary:  #18DF75;
     }
    
     a {
