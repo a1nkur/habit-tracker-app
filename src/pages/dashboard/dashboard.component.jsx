@@ -9,6 +9,7 @@ import {
   DataView,
   ToggleDateView,
   HabitStatus,
+  Settings,
 } from "../../components";
 
 const Dashboard = () => {
@@ -18,6 +19,7 @@ const Dashboard = () => {
         <ColOne>
           <RowOne>
             <Welcome />
+            <Settings />
           </RowOne>
           <RowTwo>
             <ToggleButtonGroup />
@@ -74,12 +76,15 @@ const ColOne = styled.section`
   grid-template-rows: 5rem 4rem 6rem auto;
 `;
 
-const RowOne = styled.section``;
+const RowOne = styled.section`
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+`;
 
 const RowTwo = styled.section`
   display: grid;
   grid-template-columns: 5fr 1fr;
-  padding-top: 0.2rem;
+  padding-top: 0.5rem;
 `;
 
 const RowThree = styled.section`
@@ -87,8 +92,6 @@ const RowThree = styled.section`
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 3rem 3rem;
   grid-row-gap: 0.5rem;
-
-  /* border: 1px dotted red; */
 `;
 
 const RowFour = styled.section``;

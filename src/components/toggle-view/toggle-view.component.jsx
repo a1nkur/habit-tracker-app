@@ -24,7 +24,6 @@ export default ToggleView;
 
 const Container = styled.section`
   height: 3rem;
-
   display: flex;
   justify-content: center;
 `;

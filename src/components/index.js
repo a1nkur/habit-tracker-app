@@ -10,6 +10,7 @@ import ProgressBar from "./progress-bar/progress-bar.component";
 import DataView from "./data-view/data-view.component";
 import ToggleDateView from "./toggle-date-view/toggle-date-view.component";
 import HabitStatus from "./habit-status/habit-status.component";
+import Settings from "./settings/settings.component";
 
 export {
   SignIn,
@@ -24,4 +25,5 @@ export {
   DataView,
   ToggleDateView,
   HabitStatus,
+  Settings,
 };
