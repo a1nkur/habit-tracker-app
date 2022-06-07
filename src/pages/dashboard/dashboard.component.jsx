@@ -91,13 +91,17 @@ const RowThree = styled.section`
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 3rem 3rem;
-  grid-row-gap: 0.5rem;
+  grid-row-gap: 0.8rem;
 `;
 
-const RowFour = styled.section``;
+const RowFour = styled.section`
+  /* border: 1px solid red; */
+  padding-top: 1rem;
+`;
 
 const ColTwo = styled.section`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 8rem auto;
+  grid-template-rows: 5rem calc(85vh - 9.5rem);
+  grid-row-gap: 0.5rem;
 `;

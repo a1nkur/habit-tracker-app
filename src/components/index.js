@@ -11,6 +11,10 @@ import DataView from "./data-view/data-view.component";
 import ToggleDateView from "./toggle-date-view/toggle-date-view.component";
 import HabitStatus from "./habit-status/habit-status.component";
 import Settings from "./settings/settings.component";
+import DateSelect from "./date-select/date-select.component";
+import GoalPercentageStatus from "./goal-percentage-status/goal-percentage-status.component";
+import ProgressMeter from "./progress-meter/progress-meter.component";
+import HabitCard from "./habit-card/habit-card.component";
 
 export {
   SignIn,
@@ -26,4 +30,8 @@ export {
   ToggleDateView,
   HabitStatus,
   Settings,
+  DateSelect,
+  GoalPercentageStatus,
+  ProgressMeter,
+  HabitCard,
 };

@@ -8,4 +8,7 @@ export default DataView;
 
 /* ---------------------------- Styled Components --------------------------- */
 
-const Container = styled.section``;
+const Container = styled.section`
+  /* border-top: 1px solid #ddd; */
+  height: 100%;
+`;

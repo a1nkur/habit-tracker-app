@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
+import { ProgressMeter } from "../index";
 
 const ProgressBar = () => {
   return (
     <Container>
-      {/* <input type="range" name="" id="" /> */}
-      <PogressOuterContainer>
-        <PogressInnerContainer></PogressInnerContainer>
-      </PogressOuterContainer>
+      <ProgressMeter />
       <ProgressStatus>
         <Left>
           <BsArrowUpShort />
@@ -67,25 +65,4 @@ const Right = styled.section`
   span {
     color: var(--black-shade-secondary);
   }
-`;
-
-const PogressOuterContainer = styled.section`
-  height: 0.7rem;
-  width: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-
-  border: 1px solid #ddd;
-`;
-
-const PogressInnerContainer = styled.section`
-  background-color: var(--blue-shade-primary);
-  width: 27%;
-  height: 100%;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 `;
