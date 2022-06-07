@@ -25,6 +25,18 @@ export default ProgressBar;
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+
+  input {
+    &:focus {
+      outline: none;
+    }
+
+    &:-moz-range-thumb {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+    }
+  }
 `;
 
 const ProgressStatus = styled.section`
