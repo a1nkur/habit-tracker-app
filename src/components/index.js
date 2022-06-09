@@ -18,6 +18,7 @@ import HabitCard from "./habit-card/habit-card.component";
 import WeekDisplay from "./week-display/week-display.component";
 import AddNewHabitModal from "./add-new-habit-modal/add-new-habit-modal.component";
 import ColorDots from "./color-dots/color-dots.component";
+import ToolTipBox from "./tool-tip-box/tool-tip-box.component";
 
 export {
   SignIn,
@@ -40,4 +41,5 @@ export {
   WeekDisplay,
   AddNewHabitModal,
   ColorDots,
+  ToolTipBox,
 };

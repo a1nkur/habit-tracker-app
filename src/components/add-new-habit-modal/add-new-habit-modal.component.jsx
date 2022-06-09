@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { forwardRef } from "react";
-import { ColorDots } from "../index";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { ColorDots, ToolTipBox } from "../index";
+import { AiOutlineInfoCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 const Backdrop = () => {
   return <BackdropContainer></BackdropContainer>;
@@ -37,8 +37,10 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
   const [habitType, setHabitType] = useState("");
   const [habitfrequency, setHabitfrequency] = useState([]);
   const [habitfrequencyOptions, setHabitfrequencyOptions] = useState("");
-  const [habitColor, setHabitColor] = useState("");
+  const [habitColor, setHabitColor] = useState("#f17300");
   const [question, setQuestion] = useState("");
+
+  const [showToolTp, setShowToolTip] = useState(true);
 
   const handleHabitTypeSelection = e => {
     setHabitType(e.target.id);
@@ -87,7 +89,10 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
   return (
     <Container ref={reference}>
       <FormContainer>
-        <Heading>Add your new habit.</Heading>
+        <Heading>
+          <h1> Add your new habit.</h1>
+          <AiOutlineCloseCircle onClick={() => toggleModalOff(false)} />
+        </Heading>
         <FormControl>
           <h2>Name your habit.</h2>
           <input
@@ -99,25 +104,14 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
           />
         </FormControl>
         <FormControl>
-          <h2>Habit Type.</h2>
-          <ButtonGroup>
-            <HabitButtonType
-              id="Measurable"
-              type="button"
-              onClick={e => setHabitType(e.target.id)}
-              hasSelected={habitType === "Measurable" ? true : false}
-            >
-              Measurable <AiOutlineInfoCircle />
-            </HabitButtonType>
-            <HabitButtonType
-              id="Non-Measurable"
-              type="button"
-              onClick={e => setHabitType(e.target.id)}
-              hasSelected={habitType === "Non-Measurable" ? true : false}
-            >
-              Non-Measurable <AiOutlineInfoCircle />
-            </HabitButtonType>
-          </ButtonGroup>
+          <h2>Custom question.</h2>
+          <input
+            type="text"
+            name="habitName"
+            id="habitName"
+            value={habitName}
+            onChange={e => setQuestion(e.target.value)}
+          />
         </FormControl>
         <FormControl>
           <h2>Choose a color.</h2>
@@ -126,6 +120,33 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               <ColorDots hexCode={hexCode} index={index} setHabitColor={setHabitColor} habitColor={habitColor} />
             ))}
           </ColorContainer>
+        </FormControl>
+        <FormControl>
+          <h2>Habit Type.</h2>
+          <ButtonGroup>
+            <HabitButtonType
+              bgColor={habitColor}
+              id="Measurable"
+              type="button"
+              onClick={e => setHabitType(e.target.id)}
+              hasSelected={habitType === "Measurable" ? true : false}
+            >
+              Measurable
+              <AiOutlineInfoCircle onMouseEnter={() => setShowToolTip(true)} onMouseOut={() => setShowToolTip(false)} />
+              {/* {showToolTp && <ToolTipBox id="Measurable" />} */}
+            </HabitButtonType>
+            <HabitButtonType
+              bgColor={habitColor}
+              id="Non-Measurable"
+              type="button"
+              onClick={e => setHabitType(e.target.id)}
+              hasSelected={habitType === "Non-Measurable" ? true : false}
+            >
+              Non-Measurable
+              <AiOutlineInfoCircle onMouseEnter={() => setShowToolTip(true)} onMouseOut={() => setShowToolTip(false)} />
+              {/* {showToolTp && <ToolTipBox id="Non-Measurable" />} */}
+            </HabitButtonType>
+          </ButtonGroup>
         </FormControl>
 
         <FormControl>
@@ -234,6 +255,12 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
             </DayFrequencyOptionsButtonType>
           </OtherButtonGroup>
         </FormControl>
+        <FormControlEnd>
+          <ActionButtonType type="button" onClick={() => toggleModalOff(false)}>
+            Close
+          </ActionButtonType>
+          <ActionButtonType type="submit">Add</ActionButtonType>
+        </FormControlEnd>
       </FormContainer>
     </Container>
   );
@@ -284,9 +311,21 @@ const FormContainer = styled.form`
   width: 100%;
 `;
 
-const Heading = styled.h1`
-  color: var(--black-shade-2);
+const Heading = styled.section`
+  h1 {
+    color: var(--black-shade-2);
+    font-size: 1.7rem;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 1.5rem;
+
+  svg {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 `;
 
 // const HabitName = styled.input`
@@ -350,8 +389,9 @@ const HabitButtonType = styled.button`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  position: relative;
   svg {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 `;
 
@@ -366,4 +406,18 @@ const ColorContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 2.5rem;
+`;
+
+const FormControlEnd = styled(FormControl)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+
+  min-height: 4rem;
+`;
+
+const ActionButtonType = styled(HabitButtonType)`
+  flex: 1;
 `;
