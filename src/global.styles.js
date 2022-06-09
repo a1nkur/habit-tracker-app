@@ -40,6 +40,10 @@ const GlobalStyle = createGlobalStyle`
        --blue-shade-1:  #0E7CF2;
 
        --green-shade-1:  #18DF75;
+
+       --color-1:
+       --color-2:
+       --color-3:
     }
    
     a {

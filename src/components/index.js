@@ -17,7 +17,7 @@ import ProgressMeter from "./progress-meter/progress-meter.component";
 import HabitCard from "./habit-card/habit-card.component";
 import WeekDisplay from "./week-display/week-display.component";
 import AddNewHabitModal from "./add-new-habit-modal/add-new-habit-modal.component";
-import HabitTypeSelection from "./habit-type-selection/habit-type-selection.component";
+import ColorDots from "./color-dots/color-dots.component";
 
 export {
   SignIn,
@@ -39,5 +39,5 @@ export {
   HabitCard,
   WeekDisplay,
   AddNewHabitModal,
-  HabitTypeSelection,
+  ColorDots,
 };

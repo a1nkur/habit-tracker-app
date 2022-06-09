@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { forwardRef } from "react";
-import { HabitTypeSelection } from "../index";
+import { ColorDots } from "../index";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const Backdrop = () => {
@@ -21,6 +21,17 @@ const addNewHabit = {
 
 const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
   const reference = useRef(null);
+
+  const arrayOfPredefinedColors = [
+    "#f17300",
+    "#48B8D0",
+    "#535353",
+    "#5665eb",
+    "#3c4478",
+    "#f16363",
+    "#31c879",
+    "#307e54",
+  ];
 
   const [habitName, setHabitName] = useState("");
   const [habitType, setHabitType] = useState("");
@@ -109,9 +120,19 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
           </ButtonGroup>
         </FormControl>
         <FormControl>
+          <h2>Choose a color.</h2>
+          <ColorContainer>
+            {arrayOfPredefinedColors.map((hexCode, index) => (
+              <ColorDots hexCode={hexCode} index={index} setHabitColor={setHabitColor} habitColor={habitColor} />
+            ))}
+          </ColorContainer>
+        </FormControl>
+
+        <FormControl>
           <h2>Frequency.</h2>
           <ButtonGroup>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Monday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -120,6 +141,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               M
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Tuesday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -128,6 +150,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               T
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Wednesday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -136,6 +159,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               W
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Thursday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -144,6 +168,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               T
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Friday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -152,6 +177,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               F
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Saturday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -160,6 +186,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               S
             </DayFrequencyButtonType>
             <DayFrequencyButtonType
+              bgColor={habitColor}
               id="Sunday"
               type="button"
               onClick={handleManualFrequencySelection}
@@ -170,6 +197,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
           </ButtonGroup>
           <OtherButtonGroup>
             <DayFrequencyOptionsButtonType
+              bgColor={habitColor}
               id="Monday-Alternate"
               type="button"
               onClick={handleManualFrequencySelectionOptionsCheck}
@@ -178,6 +206,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               Monday Alternate
             </DayFrequencyOptionsButtonType>
             <DayFrequencyOptionsButtonType
+              bgColor={habitColor}
               id="Tuesday-Alternate"
               type="button"
               onClick={handleManualFrequencySelectionOptionsCheck}
@@ -186,6 +215,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               Tuesday Alternate
             </DayFrequencyOptionsButtonType>
             <DayFrequencyOptionsButtonType
+              bgColor={habitColor}
               id="Everyday"
               type="button"
               onClick={handleManualFrequencySelectionOptionsCheck}
@@ -194,6 +224,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
               Everyday
             </DayFrequencyOptionsButtonType>
             <DayFrequencyOptionsButtonType
+              bgColor={habitColor}
               id="Weekends"
               type="button"
               onClick={handleManualFrequencySelectionOptionsCheck}
@@ -258,10 +289,10 @@ const Heading = styled.h1`
   padding-bottom: 1.5rem;
 `;
 
-const HabitName = styled.input`
-  color: var(--black-shade-2);
-  border: 1px solid red;
-`;
+// const HabitName = styled.input`
+//   color: var(--black-shade-2);
+//   border: 1px solid red;
+// `;
 
 const FormControl = styled.section`
   margin-bottom: 1rem;
@@ -285,8 +316,6 @@ const FormControl = styled.section`
       outline: none;
     }
   }
-
-  /* border: 1px solid red; */
 
   h2 {
     color: var(--gray-shade-1);
@@ -313,8 +342,8 @@ const HabitButtonType = styled.button`
   height: 3rem;
   width: 9rem;
   border-radius: 3px;
-  border: 1px solid ${props => (props.hasSelected ? "var(--blue-shade-1)" : "#ccc")};
-  background-color: ${props => (props.hasSelected ? "var(--blue-shade-1)" : "transparent")};
+  border: 1px solid ${props => (props.hasSelected ? props.bgColor : "#ccc")};
+  background-color: ${props => (props.hasSelected ? props.bgColor : "transparent")};
   color: ${props => (props.hasSelected ? "#fff" : "#000")};
   cursor: pointer;
   display: flex;
@@ -331,4 +360,10 @@ const DayFrequencyButtonType = styled(HabitButtonType)``;
 const DayFrequencyOptionsButtonType = styled(HabitButtonType)`
   flex: 1;
   flex-basis: 15rem;
+`;
+
+const ColorContainer = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 2.5rem;
 `;
