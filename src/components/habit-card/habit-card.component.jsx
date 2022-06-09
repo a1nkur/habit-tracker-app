@@ -21,7 +21,7 @@ export default HabitCard;
 
 const Container = styled.section`
   min-height: 4.5rem;
-  border-left: 7px solid var(--blue-shade-primary);
+  border-left: 7px solid var(--blue-shade-1);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 
@@ -51,7 +51,7 @@ const RowTwo = styled.section`
     border: 1px solid #ddd;
     cursor: pointer;
     text-transform: capitalize;
-    color: var(--blue-shade-primary);
+    color: var(--blue-shade-1);
     font-weight: 600;
   }
 `;

@@ -9,15 +9,7 @@ const AddNewHabit = () => {
 
   const handleClick = () => setIsAddNewHabitModalOpen(true);
 
-  const addNewHabit = {
-    habitName: String,
-    habitType: String,
-    habitfrequency: Array,
-    habitColor: String,
-    question: String,
-    createdAt: String,
-    updatedAt: String,
-  };
+
 
   return (
     <Container>

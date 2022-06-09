@@ -18,7 +18,6 @@ export default HabitStatus;
 const Container = styled.section`
   border: 1px solid #ddd;
   border-radius: 3px;
-  border: 1px solid red;
 
   overflow-y: auto;
   height: 100%;
@@ -46,7 +45,7 @@ const Container = styled.section`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-shade-primary);
+    background-color: var(--gray-shade-1);
     border-radius: 20px;
     border: transparent;
   }
