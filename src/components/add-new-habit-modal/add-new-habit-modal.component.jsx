@@ -15,17 +15,62 @@ const addNewHabit = {
   habitfrequency: Array,
   habitColor: String,
   question: String,
-  createdAt: String,
-  updatedAt: String,
+  // createdAt: String,
+  // updatedAt: String,
 };
 
 const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
   const reference = useRef(null);
+
+  const [habitName, setHabitName] = useState("");
   const [habitType, setHabitType] = useState("");
-  // onClick={() => toggleModalOff(false)}
+  const [habitfrequency, setHabitfrequency] = useState([]);
+  const [habitfrequencyOptions, setHabitfrequencyOptions] = useState("");
+  const [habitColor, setHabitColor] = useState("");
+  const [question, setQuestion] = useState("");
 
   const handleHabitTypeSelection = e => {
     setHabitType(e.target.id);
+  };
+
+  const handleManualFrequencySelection = e => {
+    const doesDayAlreadyExist = habitfrequency.includes(e.target.id);
+
+    console.log(doesDayAlreadyExist, "bitch");
+
+    if (doesDayAlreadyExist) {
+      const filteredArray = habitfrequency.filter(day => day !== e.target.id);
+      setHabitfrequency([...filteredArray]);
+    } else {
+      setHabitfrequency(prevState => [...prevState, e.target.id]);
+    }
+  };
+
+  const handleManualFrequencySelectionCheck = day => {
+    return habitfrequency.includes(day);
+  };
+
+  const handleManualFrequencySelectionOptionsCheck = e => {
+    switch (e.target.id) {
+      case "Monday-Alternate":
+        setHabitfrequency(["Monday", "Wednesday", "Friday"]);
+        setHabitfrequencyOptions(e.target.id);
+        break;
+      case "Tuesday-Alternate":
+        setHabitfrequency(["Tuesday", "Thursday", "Saturday"]);
+        setHabitfrequencyOptions(e.target.id);
+        break;
+      case "Everyday":
+        setHabitfrequency(["Monday", "Wednesday", "Friday", "Tuesday", "Thursday", "Saturday", "Sunday"]);
+        setHabitfrequencyOptions(e.target.id);
+        break;
+      case "Weekends":
+        setHabitfrequency(["Saturday", "Sunday"]);
+        setHabitfrequencyOptions(e.target.id);
+        break;
+      default:
+        alert("Error");
+    }
   };
 
   return (
@@ -34,7 +79,13 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
         <Heading>Add your new habit.</Heading>
         <FormControl>
           <h2>Name your habit.</h2>
-          <input type="text" name="habitName" id="habitName" />
+          <input
+            type="text"
+            name="habitName"
+            id="habitName"
+            value={habitName}
+            onChange={e => setHabitName(e.target.value)}
+          />
         </FormControl>
         <FormControl>
           <h2>Habit Type.</h2>
@@ -42,7 +93,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
             <HabitButtonType
               id="Measurable"
               type="button"
-              onClick={handleHabitTypeSelection}
+              onClick={e => setHabitType(e.target.id)}
               hasSelected={habitType === "Measurable" ? true : false}
             >
               Measurable <AiOutlineInfoCircle />
@@ -50,17 +101,113 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
             <HabitButtonType
               id="Non-Measurable"
               type="button"
-              onClick={handleHabitTypeSelection}
+              onClick={e => setHabitType(e.target.id)}
               hasSelected={habitType === "Non-Measurable" ? true : false}
             >
               Non-Measurable <AiOutlineInfoCircle />
             </HabitButtonType>
           </ButtonGroup>
         </FormControl>
+        <FormControl>
+          <h2>Frequency.</h2>
+          <ButtonGroup>
+            <DayFrequencyButtonType
+              id="Monday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Monday")}
+            >
+              M
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Tuesday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Tuesday")}
+            >
+              T
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Wednesday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Wednesday")}
+            >
+              W
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Thursday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Thursday")}
+            >
+              T
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Friday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Friday")}
+            >
+              F
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Saturday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Saturday")}
+            >
+              S
+            </DayFrequencyButtonType>
+            <DayFrequencyButtonType
+              id="Sunday"
+              type="button"
+              onClick={handleManualFrequencySelection}
+              hasSelected={handleManualFrequencySelectionCheck("Sunday")}
+            >
+              S
+            </DayFrequencyButtonType>
+          </ButtonGroup>
+          <OtherButtonGroup>
+            <DayFrequencyOptionsButtonType
+              id="Monday-Alternate"
+              type="button"
+              onClick={handleManualFrequencySelectionOptionsCheck}
+              hasSelected={habitfrequencyOptions === "Monday-Alternate" ? true : false}
+            >
+              Monday Alternate
+            </DayFrequencyOptionsButtonType>
+            <DayFrequencyOptionsButtonType
+              id="Tuesday-Alternate"
+              type="button"
+              onClick={handleManualFrequencySelectionOptionsCheck}
+              hasSelected={habitfrequencyOptions === "Tuesday-Alternate" ? true : false}
+            >
+              Tuesday Alternate
+            </DayFrequencyOptionsButtonType>
+            <DayFrequencyOptionsButtonType
+              id="Everyday"
+              type="button"
+              onClick={handleManualFrequencySelectionOptionsCheck}
+              hasSelected={habitfrequencyOptions === "Everyday" ? true : false}
+            >
+              Everyday
+            </DayFrequencyOptionsButtonType>
+            <DayFrequencyOptionsButtonType
+              id="Weekends"
+              type="button"
+              onClick={handleManualFrequencySelectionOptionsCheck}
+              hasSelected={habitfrequencyOptions === "Weekends" ? true : false}
+            >
+              Weekends
+            </DayFrequencyOptionsButtonType>
+          </OtherButtonGroup>
+        </FormControl>
       </FormContainer>
     </Container>
   );
 });
+
 const AddNewHabitModal = ({ toggleModalOff }) => {
   const reference = useRef(null);
 
@@ -154,6 +301,14 @@ const ButtonGroup = styled.section`
   gap: 0.5rem;
 `;
 
+const OtherButtonGroup = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  align-items: center;
+  padding-top: 0.5rem;
+`;
+
 const HabitButtonType = styled.button`
   height: 3rem;
   width: 9rem;
@@ -169,4 +324,11 @@ const HabitButtonType = styled.button`
   svg {
     font-size: 0.8rem;
   }
+`;
+
+const DayFrequencyButtonType = styled(HabitButtonType)``;
+
+const DayFrequencyOptionsButtonType = styled(HabitButtonType)`
+  flex: 1;
+  flex-basis: 15rem;
 `;
