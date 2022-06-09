@@ -18,6 +18,7 @@ export default HabitStatus;
 const Container = styled.section`
   border: 1px solid #ddd;
   border-radius: 3px;
+  border: 1px solid red;
 
   overflow-y: auto;
   height: 100%;

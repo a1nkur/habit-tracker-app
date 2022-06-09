@@ -10,11 +10,14 @@ import ProgressBar from "./progress-bar/progress-bar.component";
 import DataView from "./data-view/data-view.component";
 import ToggleDateView from "./toggle-date-view/toggle-date-view.component";
 import HabitStatus from "./habit-status/habit-status.component";
-import Settings from "./settings/settings.component";
+import UserSettings from "./user-settings/user-settings.component";
 import DateSelect from "./date-select/date-select.component";
 import GoalPercentageStatus from "./goal-percentage-status/goal-percentage-status.component";
 import ProgressMeter from "./progress-meter/progress-meter.component";
 import HabitCard from "./habit-card/habit-card.component";
+import WeekDisplay from "./week-display/week-display.component";
+import AddNewHabitModal from "./add-new-habit-modal/add-new-habit-modal.component";
+import HabitTypeSelection from "./habit-type-selection/habit-type-selection.component";
 
 export {
   SignIn,
@@ -29,9 +32,12 @@ export {
   DataView,
   ToggleDateView,
   HabitStatus,
-  Settings,
+  UserSettings,
   DateSelect,
   GoalPercentageStatus,
   ProgressMeter,
   HabitCard,
+  WeekDisplay,
+  AddNewHabitModal,
+  HabitTypeSelection,
 };

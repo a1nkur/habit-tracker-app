@@ -12,7 +12,6 @@ export default ProgressMeter;
 
 /* ---------------------------- Styled Components --------------------------- */
 
-
 const PogressOuterContainer = styled.section`
   height: 0.7rem;
   width: 100%;
@@ -24,7 +23,7 @@ const PogressOuterContainer = styled.section`
 `;
 
 const PogressInnerContainer = styled.section`
-  background-color: var(--blue-shade-primary);
+  background-color: var(--blue-shade-1);
   width: 27%;
   height: 100%;
   border-top-left-radius: 8px;

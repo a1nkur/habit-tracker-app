@@ -14,4 +14,5 @@ export default GoalPercentageStatus;
 
 const Container = styled.section`
   text-align: end;
+  color: var(--gray-shade-1);
 `;

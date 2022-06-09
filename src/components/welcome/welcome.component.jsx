@@ -19,12 +19,14 @@ export default Welcome;
 const Container = styled.section`
   h1 {
     font-size: 2rem;
-    padding-bottom: 0.2rem;
+    color: var(--black-shade-2);
+    margin-top: -0.5rem;
   }
+
 
   span {
     font-size: 1.1rem;
     font-weight: 300;
-    color: var(--gray-shade-primary);
+    color: var(--gray-shade-1);
   }
 `;

@@ -1,14 +1,31 @@
 import styled from "styled-components";
 
 import { FiPlus } from "react-icons/fi";
+import { useState } from "react";
+import { AddNewHabitModal } from "../index";
 
 const AddNewHabit = () => {
+  const [isAddNewHabitModalOpen, setIsAddNewHabitModalOpen] = useState(false);
+
+  const handleClick = () => setIsAddNewHabitModalOpen(true);
+
+  const addNewHabit = {
+    habitName: String,
+    habitType: String,
+    habitfrequency: Array,
+    habitColor: String,
+    question: String,
+    createdAt: String,
+    updatedAt: String,
+  };
+
   return (
     <Container>
-      <Button type="button">
+      <Button type="button" onClick={handleClick}>
         <FiPlus />
         add habit
       </Button>
+      {isAddNewHabitModalOpen && <AddNewHabitModal toggleModalOff={setIsAddNewHabitModalOpen} />}
     </Container>
   );
 };

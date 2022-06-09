@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
 
     html, body {
         font-family: 'Noto Sans', sans-serif;
-
    }
 
    :root {
@@ -28,17 +27,19 @@ const GlobalStyle = createGlobalStyle`
        --border-1 : 1px solid #ccc;
        
        
-       --black-shade-primary: #000000;
-       --black-shade-secondary: #35383F;
+       --black-shade-1: #000000;
+       --black-shade-2:  #292929;
+       --black-shade-3: #35383F;
 
 
-       --gray-shade-primary:  #A3A8B0;
-       --gray-shade-secondary:  #EDF3FA;
+       --gray-shade-1:  #A3A8B0;
+       --gray-shade-2:  #EDF3FA;
+       --gray-shade-3:  #e3e3e3;
 
 
-       --blue-shade-primary:  #0E7CF2;
+       --blue-shade-1:  #0E7CF2;
 
-       --green-shade-primary:  #18DF75;
+       --green-shade-1:  #18DF75;
     }
    
     a {

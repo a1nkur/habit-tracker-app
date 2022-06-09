@@ -1,14 +1,10 @@
-import styled from "styled-components";
+import { WeekDisplay } from "../index";
 
 const DataView = () => {
-  return <Container></Container>;
+  // week
+  if (true) {
+    return <WeekDisplay />;
+  }
 };
 
 export default DataView;
-
-/* ---------------------------- Styled Components --------------------------- */
-
-const Container = styled.section`
-  /* border-top: 1px solid #ddd; */
-  height: 100%;
-`;

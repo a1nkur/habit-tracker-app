@@ -27,12 +27,15 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   padding-bottom: 0.4rem;
 `;
 
-const CurrentSelectedDate = styled.section``;
+const CurrentSelectedDate = styled.section`
+  h2 {
+    color: var(--black-shade-2);
+  }
+`;
 
 const ButtonGroup = styled.section`
   display: flex;

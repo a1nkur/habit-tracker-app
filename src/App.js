@@ -8,7 +8,7 @@ const App = () => {
     <AppContainer>
       <GlobalStyle />
       <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/:userName/dashboard" component={Dashboard} />
       </Switch>
     </AppContainer>
   );
@@ -25,5 +25,5 @@ const AppContainer = styled.section`
   display: grid;
   place-items: center;
 
-  background-color: var(gray-shade-primary);
+  background-color: var(--gray-shade-3);
 `;
