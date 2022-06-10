@@ -9,6 +9,19 @@ const GlobalStyle = createGlobalStyle`
 
     html, body {
         font-family: 'Noto Sans', sans-serif;
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-x: hidden;
+        
+        scroll-behavior: smooth;
+        
    }
 
    :root {

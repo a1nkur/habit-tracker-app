@@ -5,7 +5,7 @@ const HabitCard = ({ eachHabit }) => {
   return (
     <Container>
       <RowOne>
-        <span>habit name</span>
+        <span>pipeline name</span>
         <BiDotsVerticalRounded />
       </RowOne>
       <RowTwo>

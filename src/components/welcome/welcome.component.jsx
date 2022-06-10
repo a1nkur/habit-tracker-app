@@ -6,7 +6,7 @@ const Welcome = () => {
       <h1>Hey there, {"Ankur"}.</h1>
 
       <span>
-        {"5"}hrs {"42"}mins till bedtime.
+        {"5"}hrs {"42"}mins.
       </span>
     </Container>
   );
@@ -22,7 +22,6 @@ const Container = styled.section`
     color: var(--black-shade-2);
     margin-top: -0.5rem;
   }
-
 
   span {
     font-size: 1.1rem;

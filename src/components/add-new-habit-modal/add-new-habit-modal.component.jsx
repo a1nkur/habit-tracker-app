@@ -4,9 +4,13 @@ import ReactDOM from "react-dom";
 import { forwardRef } from "react";
 import { ColorDots, ToolTipBox } from "../index";
 import { AiOutlineInfoCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { backdropAnimation, ModalSlideAnimation } from "../../animation";
+import { motion } from "framer-motion";
 
 const Backdrop = () => {
-  return <BackdropContainer></BackdropContainer>;
+  return (
+    <BackdropContainer variants={backdropAnimation} initial="hidden" animate="visible" exit="exit"></BackdropContainer>
+  );
 };
 
 const addNewHabit = {
@@ -86,9 +90,13 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
     }
   };
 
+  const handleFormSubmit = e => {
+    e.preventDefault();
+  };
+
   return (
-    <Container ref={reference}>
-      <FormContainer>
+    <Container ref={reference} variants={ModalSlideAnimation} initial="hidden" animate="visible" exit="exit">
+      <FormContainer onSubmit={handleFormSubmit}>
         <Heading>
           <h1> Add your new habit.</h1>
           <AiOutlineCloseCircle onClick={() => toggleModalOff(false)} />
@@ -109,7 +117,7 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
             type="text"
             name="habitName"
             id="habitName"
-            value={habitName}
+            value={question}
             onChange={e => setQuestion(e.target.value)}
           />
         </FormControl>
@@ -284,7 +292,7 @@ export default AddNewHabitModal;
 
 /* ---------------------------- Styled Components --------------------------- */
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   height: 100vh;
   width: 40vw;
   position: absolute;
@@ -295,7 +303,7 @@ const Container = styled.section`
   padding: 1rem;
 `;
 
-const BackdropContainer = styled.section`
+const BackdropContainer = styled(motion.section)`
   position: fixed;
   top: 0;
   left: 0;
@@ -327,11 +335,6 @@ const Heading = styled.section`
     cursor: pointer;
   }
 `;
-
-// const HabitName = styled.input`
-//   color: var(--black-shade-2);
-//   border: 1px solid red;
-// `;
 
 const FormControl = styled.section`
   margin-bottom: 1rem;
@@ -413,7 +416,7 @@ const FormControlEnd = styled(FormControl)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  /* gap: 1rem; */
 
   min-height: 4rem;
 `;

@@ -1,15 +1,20 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyle from "./global.styles";
 import { Dashboard } from "./pages";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <AppContainer>
       <GlobalStyle />
-      <Switch>
-        <Route exact path="/:userName/dashboard" component={Dashboard} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/:userName/dashboard" component={Dashboard} />
+        </Switch>
+      </AnimatePresence>
     </AppContainer>
   );
 };

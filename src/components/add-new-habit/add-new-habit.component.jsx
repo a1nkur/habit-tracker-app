@@ -3,21 +3,22 @@ import styled from "styled-components";
 import { FiPlus } from "react-icons/fi";
 import { useState } from "react";
 import { AddNewHabitModal } from "../index";
+import { AnimatePresence } from "framer-motion";
 
 const AddNewHabit = () => {
   const [isAddNewHabitModalOpen, setIsAddNewHabitModalOpen] = useState(false);
 
   const handleClick = () => setIsAddNewHabitModalOpen(true);
 
-
-
   return (
     <Container>
       <Button type="button" onClick={handleClick}>
         <FiPlus />
-        add habit
+        add pipeline
       </Button>
-      {isAddNewHabitModalOpen && <AddNewHabitModal toggleModalOff={setIsAddNewHabitModalOpen} />}
+      <AnimatePresence>
+        {isAddNewHabitModalOpen && <AddNewHabitModal toggleModalOff={setIsAddNewHabitModalOpen} />}
+      </AnimatePresence>
     </Container>
   );
 };
@@ -42,7 +43,7 @@ const Button = styled.button`
   justify-content: center;
   gap: 0.1rem;
   border-radius: 30px;
-  color: var(--blue-shade-primary);
+  color: var(--blue-shade-1);
   border: none;
   cursor: pointer;
   background-color: transparent;
