@@ -53,8 +53,6 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
   const handleManualFrequencySelection = e => {
     const doesDayAlreadyExist = habitfrequency.includes(e.target.id);
 
-    console.log(doesDayAlreadyExist, "bitch");
-
     if (doesDayAlreadyExist) {
       const filteredArray = habitfrequency.filter(day => day !== e.target.id);
       setHabitfrequency([...filteredArray]);
@@ -98,11 +96,11 @@ const ModalContainer = forwardRef(({ toggleModalOff }, ref) => {
     <Container ref={reference} variants={ModalSlideAnimation} initial="hidden" animate="visible" exit="exit">
       <FormContainer onSubmit={handleFormSubmit}>
         <Heading>
-          <h1> Add your new habit.</h1>
+          <h1> Add your new pipeline.</h1>
           <AiOutlineCloseCircle onClick={() => toggleModalOff(false)} />
         </Heading>
         <FormControl>
-          <h2>Name your habit.</h2>
+          <h2>Name your pipeline.</h2>
           <input
             type="text"
             name="habitName"
@@ -416,11 +414,11 @@ const FormControlEnd = styled(FormControl)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* gap: 1rem; */
-
+  gap: 0.2rem;
   min-height: 4rem;
 `;
 
 const ActionButtonType = styled(HabitButtonType)`
   flex: 1;
+  flex-basis: 15rem;
 `;

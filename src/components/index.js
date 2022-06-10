@@ -20,6 +20,7 @@ import AddNewHabitModal from "./add-new-habit-modal/add-new-habit-modal.componen
 import ColorDots from "./color-dots/color-dots.component";
 import ToolTipBox from "./tool-tip-box/tool-tip-box.component";
 import Options from "./options/options.component";
+import BedTimeModal from "./bed-time-modal/bed-time-modal.component";
 
 export {
   SignIn,
@@ -44,4 +45,5 @@ export {
   ColorDots,
   ToolTipBox,
   Options,
+  BedTimeModal,
 };

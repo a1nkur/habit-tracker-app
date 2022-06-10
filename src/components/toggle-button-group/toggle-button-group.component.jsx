@@ -23,7 +23,7 @@ const Container = styled.section`
 
   padding: 0.3rem;
 
-  background-color: var(--gray-shade-secondary);
+  background-color: var(--gray-shade-2);
 `;
 
 const Button = styled.button`
@@ -31,7 +31,7 @@ const Button = styled.button`
   height: 100%;
 
   border-radius: 30px;
-  color: var(--black-shade-secondary);
+  color: var(--black-shade-2);
   border: none;
   cursor: pointer;
   background-color: transparent;

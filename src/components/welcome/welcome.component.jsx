@@ -1,13 +1,17 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { BedTimeModal } from "../index";
 
 const Welcome = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <Container>
       <h1>Hey there, {"Ankur"}.</h1>
-
-      <span>
+      <span onClick={() => setShowModal(true)}>
         {"5"}hrs {"42"}mins.
       </span>
+      {showModal && <BedTimeModal turnModalOff={setShowModal} />}
     </Container>
   );
 };
@@ -27,5 +31,10 @@ const Container = styled.section`
     font-size: 1.1rem;
     font-weight: 300;
     color: var(--gray-shade-1);
+
+    &:hover {
+      color: var(--black-shade-1);
+      cursor: pointer;
+    }
   }
 `;

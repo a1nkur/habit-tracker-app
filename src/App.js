@@ -1,7 +1,7 @@
 import { Route, Switch, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyle from "./global.styles";
-import { Dashboard } from "./pages";
+import { AuthenticationPage, Dashboard } from "./pages";
 import { AnimatePresence } from "framer-motion";
 
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path="/:userName/dashboard" component={Dashboard} />
+          <Route exact path="/auth" component={AuthenticationPage} />
         </Switch>
       </AnimatePresence>
     </AppContainer>

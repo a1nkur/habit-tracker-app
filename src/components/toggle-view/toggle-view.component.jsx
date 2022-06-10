@@ -30,7 +30,7 @@ const Container = styled.section`
 
 const InnerContainer = styled.section`
   border-radius: 30px;
-  background-color: var(--gray-shade-secondary);
+  background-color: var(--gray-shade-2);
 
   display: flex;
   align-items: center;
