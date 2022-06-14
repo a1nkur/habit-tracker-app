@@ -3,14 +3,20 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import ReactDOM from "react-dom";
 import { FaCloudMoon } from "react-icons/fa";
-import { useState } from "react";
 
 const Backdrop = () => {
   return <BackdropContainer></BackdropContainer>;
 };
 
-const ModalContainer = ({ turnModalOff }) => {
-  const [timeFormat, setTimeFormat] = useState("PM");
+const ModalContainer = ({ turnModalOff, timeFormat, setTimeFormat, bedtime, setBedTime }) => {
+  const handleChange = e => {
+    setBedTime(prevState => {
+      return {
+        ...prevState,
+        [e.target.id]: e.target.value,
+      };
+    });
+  };
 
   return (
     <Container>
@@ -24,12 +30,30 @@ const ModalContainer = ({ turnModalOff }) => {
       <Row2>
         <div className="left">
           <Group>
-            <label htmlFor="hour">Hr</label>
-            <input type="number" name="hour" id="hour" min={1} max={12} step={1} />
+            <label htmlFor="hours">Hr</label>
+            <input
+              type="number"
+              name="hours"
+              id="hours"
+              min={1}
+              max={12}
+              step={1}
+              value={bedtime.hours}
+              onChange={handleChange}
+            />
           </Group>
           <Group>
-            <label htmlFor="minute">Min</label>
-            <input type="number" name="minute" id="minute" min={1} max={60} step={1} />
+            <label htmlFor="minutes">Min</label>
+            <input
+              type="number"
+              name="minutes"
+              id="minutes"
+              min={1}
+              max={60}
+              step={1}
+              value={bedtime.minutes}
+              onChange={handleChange}
+            />
           </Group>
         </div>
         <Group>
@@ -44,21 +68,30 @@ const ModalContainer = ({ turnModalOff }) => {
         </Group>
       </Row2>
       <Row3>
-        <button type="button">cancel</button>
+        <button type="button" onClick={() => turnModalOff(false)}>
+          cancel
+        </button>
         <button type="submit">edit time</button>
       </Row3>
     </Container>
   );
 };
 
-const BedTimeModal = ({ turnModalOff }) => {
+const BedTimeModal = ({ turnModalOff, timeFormat, setTimeFormat, bedtime, setBedTime }) => {
   const reference = useRef(null);
 
   return (
     <>
       {ReactDOM.createPortal(<Backdrop />, document.getElementById("backdrop-root"))}
       {ReactDOM.createPortal(
-        <ModalContainer turnModalOff={turnModalOff} ref={reference} />,
+        <ModalContainer
+          turnModalOff={turnModalOff}
+          timeFormat={timeFormat}
+          setTimeFormat={setTimeFormat}
+          ref={reference}
+          bedtime={bedtime}
+          setBedTime={setBedTime}
+        />,
         document.getElementById("overlay-root")
       )}
     </>

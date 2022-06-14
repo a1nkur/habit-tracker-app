@@ -4,14 +4,24 @@ import { BedTimeModal } from "../index";
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
+  const [timeFormat, setTimeFormat] = useState("PM");
+  const [bedtime, setBedTime] = useState({ hours: "", minutes: "" });
 
   return (
     <Container>
       <h1>Hey there, {"Ankur"}.</h1>
       <span onClick={() => setShowModal(true)}>
-        {"5"}hrs {"42"}mins.
+        {bedtime.hours}hrs {bedtime.minutes}mins.
       </span>
-      {showModal && <BedTimeModal turnModalOff={setShowModal} />}
+      {showModal && (
+        <BedTimeModal
+          turnModalOff={setShowModal}
+          timeFormat={timeFormat}
+          setTimeFormat={setTimeFormat}
+          bedtime={bedtime}
+          setBedTime={setBedTime}
+        />
+      )}
     </Container>
   );
 };
